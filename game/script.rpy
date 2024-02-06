@@ -19,7 +19,8 @@ image g:
 # --------------------------------
 # --- CREATION DES PERSONNAGES ---
 # --------------------------------
-define e = Character('', color="#c8ffc8")
+define narrateur_nvl = Character('Zhongli', color="#692d0b", kind= nvl)
+define narrateur = Character('Zhongli', color="#692d0b")
 
 # ------------------------------
 # --- INITIALISATIN DU TIMER ---
@@ -33,10 +34,10 @@ init:
 # Le jeu commence ici
 label start:
 
-    e "Vous venez de créer un nouveau jeu Ren'Py."
-
-    e "Après avoir ajouté une histoire, des images et de la musique, vous pourrez le présenter au monde entier !"
+    narrateur_nvl "Vous venez de créer un nouveau jeu Ren'Py.{w} Après avoir ajouté une histoire, des images et de la musique, vous pourrez le présenter au monde entier !"
     
+    nvl clear
+
     jump questionTime1
 
 
@@ -70,68 +71,84 @@ label start:
                     jump suite
 
         label menu1_slow:
-            e "defeat"
-            jump suite
+            narrateur "defeat"
+            jump end
 
     
     label suite:
 
-        e "victory"
+        nvl hide dissolve
+        nvl show dissolve
+        narrateur "victory"
+
+
+    label end:
+        #isnss
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     return
-
-
-
-"""
-# Main code
-label start:
-
-    scene Athena:
-        xalign 0.5
-        yalign 0.5
-
-    athena "Bonjour. Je suis Athéna."
-    athena "Je vous accompagnerai durant ce voyage."
-
-    menu:
-
-        athena "Êtes-vous prêt ?"
-
-        "Oui.":
-            jump depart
-
-        "Non.":
-            jump attente
-
-    label depart:
-
-        $ menu_flag = True
-
-        athena "Bien. C'est parti !"
-
-        jump suite
-
-    label attente:
-
-        $ menu_flag = False
-
-        athena "Très bien, faite moi signe quand vous serez prêt."
-
-        menu:
-
-            "Je suis prêt.":
-
-                jump depart
-
-            "Je doit encore me preparer.":
-
-                jump attente
-
-    label suite:
-
-        # ... the game continues here.
-
-    
-return
-"""

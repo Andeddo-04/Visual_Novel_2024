@@ -1,22 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 70, in script
-    p "Mr. Abramov? Did you fall asleep, by any chance?"
-Exception: Sayer 'p' is not defined.
+  File "game/script.rpy", line 36, in script
+    nvlnarrateur "Vous venez de créer un nouveau jeu Ren'Py.{w} Après avoir ajouté une histoire, des images et de la musique, vous pourrez le présenter au monde entier !"
+Exception: Sayer 'nvlnarrateur' is not defined.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 70, in script
-    p "Mr. Abramov? Did you fall asleep, by any chance?"
+  File "game/script.rpy", line 36, in script
+    nvlnarrateur "Vous venez de créer un nouveau jeu Ren'Py.{w} Après avoir ajouté une histoire, des images et de la musique, vous pourrez le présenter au monde entier !"
   File "D:\2 - Cours\1 - année_n°1\Logiciel\renpy-8.1.3-sdk\renpy\ast.py", line 890, in execute
     who = eval_who(self.who, self.who_fast)
   File "D:\2 - Cours\1 - année_n°1\Logiciel\renpy-8.1.3-sdk\renpy\ast.py", line 783, in eval_who
     raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer 'p' is not defined.
+Exception: Sayer 'nvlnarrateur' is not defined.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.3.23091805
 Visual_Novel_2024 1.0
-Tue Feb  6 10:06:03 2024
+Tue Feb  6 10:45:55 2024
