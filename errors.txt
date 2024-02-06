@@ -2,8 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 22: EOL while scanning string literal
-    Character(', color="#692d0b", kind= nvl)
+File "game/script.rpy", line 26: expected 'word' not found.
+    define      = Character('Commissaire Lestrade', color="#692d0b")
+                ^
 
 Ren'Py Version: Ren'Py 8.1.3.23091805
-Tue Feb  6 11:02:35 2024
+Tue Feb  6 16:07:45 2024
