@@ -22,14 +22,14 @@ image g:
 python:
     name = renpy.input("Quel est votre nom ?")
  
-define narrateur_nvl = Character('', color="#692d0b", kind= nvl)
-define narrateur     = Character('', color="#692d0b")
+define nrt_nvl = Character('', color="#692d0b", kind= nvl)
+define nrt     = Character('', color="#692d0b")
 
 define commissaire_lestrade_nvl = Character('Commissaire Lestrade', color="#692d0b", kind= nvl)
 define commissaire_lestrade     = Character('Commissaire Lestrade', color="#692d0b")
 
-define inspecteur_nvl = Character("[name]", color="#c2073f", kind= nvl)
-define inspecteur     = Character("[name]",color="#c2073f")
+define inspecteur_nvl = Character("Inspecteur [name]", color="#c2073f", kind= nvl)
+define inspecteur     = Character("Inspecteur [name]",color="#c2073f")
 
 # ------------------------------
 # --- INITIALISATIN DU TIMER ---
@@ -43,70 +43,101 @@ init:
 # Le jeu commence ici
 label start:
 
-    centered """{w}
-21 décembre 1952_\n\n{w}
-"Whitechapel, un quartier rongé par un mal au gout amer de réalité.\n{w}
-Entre psychopathes, camés et autre prostituées on dirait\n que les enfers eux meme rejetent sa pourriture informe\n jusque dans l'ame des citoyens.\n{w}
-Le procureur veut faire un ... exemple\n
-Une comdamnation a MORT.\n{w}
-Faire comprendre a la raclure comment finissent\n les esprits égarés.
-...
-    """
+    menu:
+        "Lancer Histoire":
+            jump intro
+        
+        "Question jour 1":
+            jump Day_One
+        
+        "Question jour 2":
+            jump Day_Two
 
-    nvl clear
+        "Question jour 3":
+            jump Day_Three
 
-    centered """{w}
-Comme si depuis son bureau dorée, le cul bien
-\n
-visser sur son thrones, il s'improvisais Dieu.
-\n
-{w}
-Comme si son palais, rongée par le sel de son caviar,
-\n
-pouvait distillé la seule vérité qui compte...
-\n
-\n
-{w}
-Enfin... peu importe au final. Moi je ne suis que le chien de garde
-\n
-de cet enfer aristocratique. Ses yeux, ses bras...{w}
-\n
-Bref celui qui fait le sale boulot. Et de mes choix, dans 4 jours ...
-\n
-\n
-{w}
-Un homme mourrat.
-"
-    """
+    label intro:
 
-    nvl clear
+        centered """
+                21 décembre 1952_
+                \n\n{w}
+                "Whitechapel, un quartier rongé par un mal au gout amer de réalité.
+                \n
+                {w}
+                Entre psychopathes, camés et autre prostituées on dirait
+                \n
+                que les enfers eux meme rejetent leurs pourriture informe
+                \n
+                jusque dans l'ame des citoyens.
+                \n
+                {w}
+                Le procureur veut faire un ... exemple
+                \n
+                Une comdamnation a MORT.
+                \n
+                {w}
+                Faire comprendre a la raclure comment finissent\n les esprits égarés.
+                ...
+                """
 
-    commissaire_lestrade_nvl "Vous pouvez me rapeller votre nom ?"
+        nvl clear
 
-    python:
-        name = renpy.input("Quel est votre nom ?", length=32)
-        name = name.strip()
+        centered """
+                Comme si depuis son bureau dorée, le c*l bien
+                \n
+                visser sur son thrones, il s'improvisais Dieu.
+                \n
+                {w}
+                Comme si son palais, rongée par le sel de son caviar,
+                \n
+                pouvait distillé la seule vérité qui compte...
+                \n
+                \n
+                {w}
+                Enfin... peu importe au final. Moi je ne suis que le chien de garde
+                \n
+                de cet enfer aristocratique. Ses yeux, ses bras...{w}
+                \n
+                Bref celui qui fait le sale boulot. Et de mes choix, dans 4 jours ...
+                \n
+                \n
+                {w}
+                Un homme mourrat."
+                """
 
-        if not name:
-            name = "Smith"
+        nvl clear
 
-    commissaire_lestrade_nvl "Très bien Inspecteur [name]. Comme je vous ai dit le procureur nous pousse au cul pour qu'on envoie quelqu'un a l'echafaud. Et on a notre candidat."
+        commissaire_lestrade_nvl "Pouvez vous me rapeller votre nom ?"
 
-    narrateur_nvl "*vous tends un dossier*"
+        python:
+            name = renpy.input("Quel est votre nom ?", length=32)
+            name = name.strip()
 
-    inspecteur_nvl "La victime n'a que 7 ans ?!"
+            if not name:
+                name = "Smith"
 
-    commissaire_lestrade_nvl "Le corps a été retrouvé il y 1 semaine, balloté par la tamise. On a réussi a identifié le corps mais tout les supects avait un alibi fiable. Les seuls que nous n'avons pas interrogés sont... Sa famille"
+        commissaire_lestrade_nvl "Très bien [inspecteur].\nComme je vous ai dit le procureur nous pousse au c*l pour qu'on envoie quelqu'un a l'échafaud.\nEt on a notre candidat."
+        
+        nrt_nvl "{i}*vous tends un dossier*"
 
-    inspecteur_nvl "..."
+        inspecteur_nvl "La victime n'a que 7 ans ?!"
 
-    commissaire_lestrade_nvl "Quoi qu'il arrive je veux que vous retrouviez le salopard qui a fait ça avant Noël."
+        commissaire_lestrade_nvl "Le corps a été retrouvé il y 1 semaine, balloté par la tamise. On a réussi a identifié le corps mais tout les supects avait un alibi fiable. Les seuls que nous n'avons pas interrogés sont... Sa famille"
 
-    inspecteur_nvl "Une executions le jour de Noël? Jolie cadeau Mr. le procureur. Compris chef."
+        inspecteur_nvl "..."
+
+        nvl clear
+
+        inspecteur_nvl "..."
+
+        commissaire_lestrade_nvl "Quoi qu'il arrive je veux que vous retrouviez le s*l*p*rd qui a fait ça avant Noël."
+
+        inspecteur_nvl "Une executions le jour de Noël ? Jolie cadeau Mr. le procureur.\nCompris chef."
     
 
-    jump Day_One
-
+    # --------------
+    # --- Jour 1 ---
+    # --------------
     label Day_One:
         
         transform alpha_dissolve:
@@ -121,16 +152,18 @@ Un homme mourrat.
 
             bar value time range timer_range xalign 0.5 yalign 0.5 xmaximum 500 at alpha_dissolve 
                 # ^This is the timer bar.
-                
-        label questionTime1:
+
+        nrt "Jour 1_"
+        
+        label Coffe_time_1:
             
             label menu_day_one:
 
-                # Durée globale du timer (en secondes)
-                $ time = 10
+                # Durée globale du timer (en secondes - 4)
+                $ time = 6
 
                 # nombre de tick a laquelle le timer s'écoule
-                $ timer_range = 10.1
+                $ timer_range = 7.0
 
                 # revoi a un x label a la fin du timer
                 $ timer_jump = 'menu_day_one_slow'
@@ -139,18 +172,33 @@ Un homme mourrat.
                 show screen countdown
 
                 menu:
-                    "Test du timer":
+                    "It's coffee time !":
                         #play sound click
                         hide screen countdown                  ### stop the timer
-                        jump questionTime2
+                        jump Selection_pour_interrogation_1
 
             label menu_day_one_slow:
-                narration "defeat"
-                jump end
+                nrt "defeat"
+                jump dev_codes
+
+        label Selection_pour_interrogation_1:
+
+            menu:
+                "Jean":
+                    jump intro
+                
+                "Richard":
+                    jump Day_One
+                
+                "Elisabeth":
+                    jump Day_Two
+
+                "Anne":
+                    jump Day_Three
 
     # =================================================================================================
 
-    jump questionTime2
+    # jump questionTime2
 
     # =================================================================================================
 
@@ -169,15 +217,15 @@ Un homme mourrat.
             bar value time range timer_range xalign 0.5 yalign 0.5 xmaximum 500 at alpha_dissolve 
                 # ^This is the timer bar.
                 
-        label questionTime2:
+        label Coffe_time_2:
             
             label menu_day_two:
 
-                # Durée globale du timer (en secondes)
-                $ time = 4
+                # Durée globale du timer (en secondes - 2)
+                $ time = 3
 
                 # nombre de tick a laquelle le timer s'écoule
-                $ timer_range = 2.1
+                $ timer_range = 3.0
 
                 # revoi a un x label a la fin du timer
                 $ timer_jump = 'menu_day_two_slow'
@@ -186,18 +234,35 @@ Un homme mourrat.
                 show screen countdown
 
                 menu:
-                    "Test du timer":
+                    "It's coffee time !":
                         #play sound click
                         hide screen countdown # stop the timer
-                        jump questionTime3
+                        jump suite
 
             label menu_day_two_slow:
-                narrateur "defeat"
-                jump end
+                nrt "defeat"
+                jump dev_codes
+
+        label Selection_pour_interrogation_2:
+
+            menu:
+                "Jean":
+                    jump intro
+                
+                "Richard":
+                    jump Day_One
+                
+                "Elisabeth":
+                    jump Day_Two
+
+                "Anne":
+                    jump Day_Three
+
+
 
     # =================================================================================================
 
-    jump questionTime3
+    # jump questionTime3
 
     # =================================================================================================
     label Day_Three:
@@ -215,15 +280,15 @@ Un homme mourrat.
             bar value time range timer_range xalign 0.5 yalign 0.5 xmaximum 500 at alpha_dissolve 
                 # ^This is the timer bar.
                 
-        label questionTime3:
+        label Coffe_time_3:
             
             label menu_day_three:
 
-                # Durée globale du timer (en secondes)
-                $ time = 1
+                # Durée globale du timer (en secondes - 4)
+                $ time = 1.5
 
                 # nombre de tick a laquelle le timer s'écoule
-                $ timer_range = 1.1
+                $ timer_range = 1.5
 
                 # revoi a un x label a la fin du timer
                 $ timer_jump = 'menu_day_three_slow'
@@ -232,21 +297,52 @@ Un homme mourrat.
                 show screen countdown
 
                 menu:
-                    "Test du timer":
+                    "It's coffee time !":
                         #play sound click
                         hide screen countdown # stop the timer
                         jump suite
 
             label menu_day_three_slow:
-                narrateur "defeat"
-                jump end
+                nrt "defeat"
+                jump dev_codes
+        
+        label Selection_pour_interrogation_3:
+
+            menu:
+                "Jean":
+                    jump intro
+                
+                "Richard":
+                    jump Day_One
+                
+                "Elisabeth":
+                    jump Day_Two
+
+                "Anne":
+                    jump Day_Three
+
 
 
     label suite:
 
-        nvl hide dissolve
-        nvl show dissolve
-        narration "victory"
+        nrt "Victory"
+        
+        jump dev_codes
+
+        label dev_codes:          
+            
+            menu:
+                "Question jour 1":
+                    jump questionTime1
+                
+                "Question jour 2":
+                    jump questionTime2
+
+                "Question jour 3":
+                    jump questionTime3
+                
+                "Restart":
+                    jump start
 
     label end:
             #isnss
