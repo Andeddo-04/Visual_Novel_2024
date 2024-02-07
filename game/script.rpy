@@ -10,11 +10,13 @@ image c:
 # ----------------------------------------------
 # --- ASSOCIATION DES IMAGES AVEC LES SCENES ---
 # ----------------------------------------------
-image f:
-    ""
+image ecran_start:
+    "start_screen-ui.png"
+    zoom 0.3
 
-image g:
-    ""
+image grey_background:
+    "grey_background.png"
+    zoom 10.0
 
 # --------------------------------
 # --- CREATION DES PERSONNAGES ---
@@ -43,6 +45,8 @@ init:
 # Le jeu commence ici
 label start:
 
+    scene grey_background
+
     menu:
         "Lancer Histoire":
             jump intro
@@ -57,6 +61,8 @@ label start:
             jump Day_Three
 
     label intro:
+
+        hide ecran_start
 
         centered """
                 21 décembre 1952_
@@ -107,7 +113,7 @@ label start:
 
         nvl clear
 
-        commissaire_lestrade_nvl "Pouvez vous me rapeller votre nom ?"
+        commissaire_lestrade "Pouvez vous me rapeller votre nom ?"
 
         python:
             name = renpy.input("Quel est votre nom ?", length=32)
@@ -116,23 +122,23 @@ label start:
             if not name:
                 name = "Smith"
 
-        commissaire_lestrade_nvl "Très bien [inspecteur].\nComme je vous ai dit le procureur nous pousse au c*l pour qu'on envoie quelqu'un a l'échafaud.\nEt on a notre candidat."
+        commissaire_lestrade "Très bien [inspecteur].\nComme je vous ai dit le procureur nous pousse au c*l pour qu'on envoie quelqu'un a l'échafaud.\nEt on a notre candidat."
         
-        nrt_nvl "{i}*vous tends un dossier*"
+        nrt "{i}*vous tends un dossier*"
 
-        inspecteur_nvl "La victime n'a que 7 ans ?!"
+        inspecteur "La victime n'a que 7 ans ?!"
 
-        commissaire_lestrade_nvl "Le corps a été retrouvé il y 1 semaine, balloté par la tamise. On a réussi a identifié le corps mais tout les supects avait un alibi fiable. Les seuls que nous n'avons pas interrogés sont... Sa famille"
+        commissaire_lestrade "Le corps a été retrouvé il y 1 semaine, balloté par la tamise. On a réussi a identifié le corps mais tout les supects avait un alibi fiable. Les seuls que nous n'avons pas interrogés sont... Sa famille"
 
-        inspecteur_nvl "..."
+        inspecteur "..."
 
         nvl clear
 
-        inspecteur_nvl "..."
+        inspecteur "..."
 
-        commissaire_lestrade_nvl "Quoi qu'il arrive je veux que vous retrouviez le s*l*p*rd qui a fait ça avant Noël."
+        commissaire_lestrade "Quoi qu'il arrive je veux que vous retrouviez le s*l*p*rd qui a fait ça avant Noël."
 
-        inspecteur_nvl "Une executions le jour de Noël ? Jolie cadeau Mr. le procureur.\nCompris chef."
+        inspecteur "Une executions le jour de Noël ? Jolie cadeau Mr. le procureur.\nCompris chef."
     
 
     # --------------
