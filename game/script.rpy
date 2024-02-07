@@ -115,12 +115,10 @@ label start:
 
         commissaire_lestrade "Pouvez vous me rapeller votre nom ?"
 
+        label identitée:
         python:
             name = renpy.input("Quel est votre nom ?", length=32)
-            name = name.strip()
-
-            if not name:
-                name = "Smith"
+            name = name.strip() or "Smith"
 
         commissaire_lestrade "Très bien [inspecteur].\nComme je vous ai dit le procureur nous pousse au c*l pour qu'on envoie quelqu'un a l'échafaud.\nEt on a notre candidat."
         
@@ -138,7 +136,9 @@ label start:
 
         commissaire_lestrade "Quoi qu'il arrive je veux que vous retrouviez le s*l*p*rd qui a fait ça avant Noël."
 
-        inspecteur "Une executions le jour de Noël ? Jolie cadeau Mr. le procureur.\nCompris chef."
+        inspecteur """
+                    "Une executions le jour de Noël ? Jolie cadeau Mr. le procureur."\nCompris chef.
+                    """
     
 
     # --------------
