@@ -1,33 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 227, in script
-    centered """
-Exception: Empty text tag in '"Jean Levallois... Il semblait calme. Bien trop calme. \n {} Son visage, impassible, ne laissait rien entrvoir d\'autre que sa future sénilité et pourtant il reussissait a garder son calme. Il etait a l\'image d\'un prédateur se camouflant parmis nous autre afin qu\'on se méfie pas des ses crocs. Mais il était aussi a l\'image d\'un vieux sage eyant vu les secrets de l\'univers. Qui était il? Je comptais bien le découvrir..."'.
+  File "game/script.rpy", line 439, in script
+    jump Dialogue_Anne
+ScriptError: could not find label 'Dialogue_Anne'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 227, in script
-    centered """
-  File "D:\2 - Cours\1 - année_n°1\Logiciel\renpy-8.1.3-sdk\renpy\ast.py", line 930, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "D:\2 - Cours\1 - année_n°1\Logiciel\renpy-8.1.3-sdk\renpy\exports.py", line 1474, in say
-    who(what, *args, **kwargs)
-  File "D:\2 - Cours\1 - année_n°1\Logiciel\renpy-8.1.3-sdk\renpy\character.py", line 1352, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
-  File "D:\2 - Cours\1 - année_n°1\Logiciel\renpy-8.1.3-sdk\renpy\character.py", line 1003, in do_display
-    display_say(who,
-  File "D:\2 - Cours\1 - année_n°1\Logiciel\renpy-8.1.3-sdk\renpy\character.py", line 674, in display_say
-    what_text.update()
-  File "D:\2 - Cours\1 - année_n°1\Logiciel\renpy-8.1.3-sdk\renpy\text\text.py", line 1865, in update
-    tokens = self.tokenize(text)
-  File "D:\2 - Cours\1 - année_n°1\Logiciel\renpy-8.1.3-sdk\renpy\text\text.py", line 2345, in tokenize
-    tokens.extend(textsupport.tokenize(i))
-  File "textsupport.pyx", line 147, in renpy.text.textsupport.tokenize
-Exception: Empty text tag in '"Jean Levallois... Il semblait calme. Bien trop calme. \n {} Son visage, impassible, ne laissait rien entrvoir d\'autre que sa future sénilité et pourtant il reussissait a garder son calme. Il etait a l\'image d\'un prédateur se camouflant parmis nous autre afin qu\'on se méfie pas des ses crocs. Mais il était aussi a l\'image d\'un vieux sage eyant vu les secrets de l\'univers. Qui était il? Je comptais bien le découvrir..."'.
+  File "game/script.rpy", line 439, in script
+    jump Dialogue_Anne
+  File "E:\2 - Cours\1 - année_n°1\Logiciel\renpy-8.1.3-sdk\renpy\ast.py", line 1992, in execute
+    rv = renpy.game.script.lookup(target)
+  File "E:\2 - Cours\1 - année_n°1\Logiciel\renpy-8.1.3-sdk\renpy\script.py", line 1013, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'Dialogue_Anne'.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.3.23091805
 Un Diable à Whitechapel 1.0
-Thu Feb  8 10:01:07 2024
+Thu Feb  8 13:46:41 2024

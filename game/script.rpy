@@ -30,17 +30,18 @@ image transmition_dossier:
 # --------------------------------
 # --- CREATION DES PERSONNAGES ---
 # --------------------------------
-python:
-    name = renpy.input("Quel est votre nom ?")
- 
-define nrt_nvl = Character('', color="#692d0b", kind= nvl)
-define nrt     = Character('', color="#692d0b")
+label identite:
+    python:
+        name = renpy.input("Quel est votre nom ?")
+        name = name.strip() or "Smith"
 
-define commissaire_lestrade_nvl = Character('Commissaire Lestrade', color="#692d0b", kind= nvl)
-define commissaire_lestrade     = Character('Commissaire Lestrade', color="#692d0b")
-
-define inspecteur_nvl = Character("Inspecteur [name]", color="#c2073f", kind= nvl)
-define inspecteur     = Character("Inspecteur [name]",color="#c2073f")
+define nrt = Character('', color="#692d0b")
+define commissaire_lestrade = Character('Commissaire Lestrade', color="#692d0b")
+define inspecteur = Character("Inspecteur [name]",color="#c2073f")
+define jean = Character("Jean Levallois",color="#9aa819")
+define richard = Character("Richard Levallois",color="#9aa819")
+define elisabeth = Character("Elisabeth Levallois",color="#9aa819")
+define anne = Character("Anne Levallois",color="#9aa819")
 
 # ------------------------------
 # --- INITIALISATIN DU TIMER ---
@@ -121,10 +122,10 @@ label start:
 
         commissaire_lestrade "Pouvez vous me rapeller votre nom ?"
 
-        label identitée:
-        python:
-            name = renpy.input("Quel est votre nom ?", length=32)
-            name = name.strip() or "Smith"
+        jump identite
+
+        label continue:
+            pass
 
         commissaire_lestrade "Très bien [inspecteur].\nComme je vous ai dit le procureur nous pousse au c*l pour qu'on envoie quelqu'un a l'échafaud.\nEt on a notre candidat."
         
@@ -140,10 +141,6 @@ label start:
 
         inspecteur "..."
 
-        nvl clear
-
-        inspecteur "..."
-
         commissaire_lestrade "Quoi qu'il arrive je veux que vous retrouviez le s*l*p*rd qui a fait ça avant Noël."
 
         inspecteur """
@@ -151,9 +148,12 @@ label start:
                     """
     
 
-    # --------------
-    # --- Jour 1 ---
-    # --------------
+
+    ###############################################################
+    #########################             #########################
+    #########################    JOUR 1   #########################
+    #########################             #########################
+    ###############################################################
     label Day_One:
         
         transform alpha_dissolve:
@@ -201,19 +201,26 @@ label start:
 
             menu:
                 "Jean":
-                    jump Alibi_Jean
+                    jump Dialogue_Jean
                 
                 "Richard":
-                    jump dev_codes
+                    jump Dialogue_Richard
                 
                 "Elisabeth":
-                    jump dev_codes
+                    jump Dialogue_Elisabeth
 
                 "Anne":
-                    jump dev_codes
+                    jump Dialogue_Anne
+    
+        #######################################################################################################
+        #######################################################################################################
+        ##### 
+        ##### DIALOGUE JEAN
+        ##### 
+        ##### =================================================================================================
+        label Dialogue_Jean:
 
-
-        centered """{i}
+            centered """{i}
                 "Jean Levallois... Il semblait calme. Bien trop calme.
                 \n {w}
                 Son visage, impassible, ne laissait rien entrevoir d'autre 
@@ -231,56 +238,282 @@ label start:
                 Qui était il? Je comptais bien le découvrir..."
                 """
 
-        menu:
+            menu:
+                
+                "Ecouter son Alibi":
+                    jump Alibi_Jean
+
+            label Alibi_Jean:
+
+                inspecteur "Mr Levallois que faisiez vou.."
+
+                jean "Mr l'agent ... Croyez vous en Dieu ?"
+
+                menu:
+                    "...":
+                        pass
+                
+                jean """
+                    Vous savez c'est moi qui m'ocuppe de l'éducation [[RELIGIEUSE|indice n°12]]
+                    de cette famille... Rose... Quelle tragédie!
+                    \n
+                    Son âme pouvait être sauvée si nous avions eu plus de temps ...
+                    \n
+                    Vous voulez savoir ce que je faisait le 13 décembre n'est pas ?
+                    """
+                
+                menu:
+                    "...":
+                        pass
+                
+                jean """
+                    Je priais... Je priais pour Rose et je lui montrais comment il fallait
+                    \n
+                    montrer notre amour au Seigneur...
+                    """ 
+
+                menu:
+                    "Etiez-vous avec elle ?":
+                        pass
+                
+                jean "Lorsque les invité de mon fils sont arrivés au domicile je suis allé faire un tour dans le parc et Rose est partie dormir"
             
-            "Ecouter son Alibi":
 
-        label Alibi_Jean:
+                inspecteur """{i}"Passons à quelqu'un d'autre"{i}"""
 
+                menu:
+                    "Richard":
+                        jump Dialogue_Richard
+                    
+                    "Elisabeth":
+                        jump Dialogue_Elisabeth
+
+                    "Anne":
+                        jump Dialogue_Anne
             
+        #######################################################################################################
+        #######################################################################################################
+        ##### 
+        ##### DIALOGUE RICHARD
+        ##### 
+        ##### =================================================================================================
+        label Dialogue_Richard:
+
+            centered """{i}
+                "Richard Levallois... Un banquier qui aurait assez d'argent pour racheter
+                \n
+                Buckingham palace s'il n'en dépensait pas la moitié pour alimenter sa future cirrhose
+                \n
+                (maladie du foie, fréquemment liée à l'excès d'alcool). 
+                \n
+                Tout chez lui transpire l'alcool. De sa chemise, sur laquelle on peut voir des
+                \n
+                traces de cognac mal lavées, à son eau de cologne très chère disimulant a peine
+                \n
+                lordeur de cendres de son cigare en passant par son ame, aussi pourri que son foie.
+                \n
+                L'argent ne fait pas le bohneur... Il rends l'homme stupides.
+                \n
+                Richard, quant a lui, était le plus stupides d'entre eux..."
+                """
+
+            menu:                
+                "Ecouter son Alibi":
+                    jump Alibi_Richard
+
+            label Alibi_Richard:
+
+                inspecteur "Bien, vous allez me décrire les evenements de la journée du 13 décembre dernier."
+
+                richard "Je ... heu ... je peux parler à ma femme avant ?"
+
+                inspecteur "Pourquoi? Peur de dire des betises Mr. Levallois?"
+                
+                richard "... laissez tomber."
+
+                inspecteur "Bien. Vous pouvez commencer."
+
+                richard """
+                    ... heu ... du poker je crois ... oui c'est ça! Notre partie de [[POKER|indice n°7]] mensuelle.
+                    Suite a cela mon et mon père avons partagé un petit verre de whisky avant que je n'aille me coucher. 
+                    \n
+                    Le lendemain m'a femme m'a annoncé la terrible nouvelle...
+                    """
+                
+                inspecteur "Et qu'avez vous fait ensuite?"
+                
+                richard "J'ai voulut prévenir la police mais le corps avait déjà été retrouvé..." 
+
+                inspecteur """{i}"Passons à quelqu'un d'autre"{i}"""
+
+                menu:
+                    "Jean":
+                        jump Dialogue_Jean
+                    
+                    "Elisabeth":
+                        jump Dialogue_Elisabeth
+
+                    "Anne":
+                        jump Dialogue_Anne 
+
+        #######################################################################################################
+        #######################################################################################################
+        ##### 
+        ##### DIALOGUE ELISABETH
+        ##### 
+        ##### =================================================================================================
+        label Dialogue_Elisabeth:
+
+            centered """{i}
+                Elisabeth Levallois... Son visage ne laissait transparaitre qu'un
+                \n
+                demon froid et calculateur caché derriere du fond de teint. 
+                \n
+                Elle avait tout de la femme parfaite, les manières, la beauté, l'intelligence.
+                \n \n
+                Il aurait été facile de confondre cette succube avec un ange.
+                \n
+                C'était une sirène. Mais son chant n'atteindrait pas ma volonté.
+                \n \n
+                Je suis là car je doit decouvrir les sombres secrets qui se cachent derrière cette histoire..."
+                """
+
+            menu:
+                
+                "Ecouter son Alibi":
+                    jump Alibi_Elisabeth
+
+            label Alibi_Elisabeth:
+
+                inspecteur "Bon si vous voulez bien on va revenir sur les évenements du 13 décembre."
+
+                elisabeth """
+                    {i}soupir{i}
+                    \n
+                    Combien de temps cela va-t-il encore durer ?
+                    \n
+                    L'assassin de ma fille cours dans les rues et vous perdez
+                    \n
+                    votre temps et le miens avec vos questions."""
+                
+                inspecteur "Mme Levallois, je ne fais que mon devoir. Veuillez passer à votre deposition."
+
+                elisabeth """
+                    Ce jour là Richard était au boulot et nous devions recevoir le soir meme,
+                    j'ai donc passer ma journée à [[NETOYER|indice n°1]] cette satanée maison.
+                    """
+                
+                elisabeth """
+                    Mon mari est rentré du boulot lorsque que j'ai eu finis de préparé le
+                    [[REPAS|indice n°2]]. Suite a cela je suis parti lire un [[LIVRE|indice n°3]] 
+                    dans ma chambre afin de me détendre et puis je me suis endormie.
+                    \n
+                    Le lendemain... Rose... {i}sanglote{i} elle avait disparu.
+                    """
+
+                inspecteur "Comment vous en etes vous rendu compte ?"
+
+                elisabeth """
+                    J'etait la première levée ce jour la et j'ai pris l'habitude de reveiller
+                    \n
+                    Anne et Rose tot le dimanche afin de leur dispensé des [[LECONS DE PIANO|indice n°4]]
+                    avant la messe. Lorsque je suis rentrée dans la chambre de Rose...
+                    """
+                
+                elisabeth """
+                    La fenetre etait brisée et la pièce sans dessus dessous.
+                    \n
+                    Quant a ma fille... introuvable...
+                    """
+
+                inspecteur """{i}"Passons à quelqu'un d'autre"{i}"""
+
+                menu:
+                    "Jean":
+                        jump Dialogue_Jean
+                    
+                    "Richard":
+                        jump Dialogue_Richard
+
+                    "Anne":
+                        jump Dialogue_Anne
+
+        #######################################################################################################
+        #######################################################################################################
+        ##### 
+        ##### DIALOGUE ANNE
+        ##### 
+        ##### =================================================================================================
+        label Dialogue_Anne:
+
+            centered """
+                Anne Levallois était une jeune fille au bouffi par
+                \n
+                des souvenirs... douloureux.
+                \n
+                La jeune fille semblait maurtri par le poids
+                \n
+                de sombres secrets. Que cachait - elle?
+                \n
+                Elle donnait l'impression d'etre un gentil petit agneaux au millieu de la meute affamé
+                de loup qu'était sa famille.
+                \n \n
+                Cependant... Les chiens ne font pas des chats et les démons font rarements des anges...
+                """
+
+            menu:
+                "Ecouter son Alibi":
+                    jump Alibi_Anne
+
+            label Alibi_Anne:
+
+                inspecteur "Mlle Anne ? Que faisiez vous le 13 décembre dernier ?"
+
+                anne "..."
+
+                inspecteur "Mlle ?"
+                
+                anne "..."
+
+                inspecteur "MLLE ANNE !"
+
+                anne """
+                    Pardon, Veuillez m'excuser. Ce jour là je répètait mes [[LECONS DE PIANO|indice n°8]]
+                    mais j'ai du [[ARRETER|indice n°9]] en debut d'après midi.
+                    \n
+                    J'ai alors fait un peu de peinture en attendant ma lecons de couture.
+                    """
+
+                inspecteur "Est-ce Mme Elisabeth qui vous dispense ces cours ?"
+
+                anne """
+                    Oui. Mais je me souviens que j'ai du me débrouiller [[TOUTE SEULE|indice n°10]] ce jours là...
+                    \n
+                    Le soir j'ai joué du piano devant les [[INVITES|indice n°7]].
+                    """
+
+                inspecteur "Et après cela ?"
+
+                anne "Je... Je n'ai pas très bien dormi et je suis allé voir dans la chambre de rose à [[L'AUBE|indice n°11]]."
+                
+                inspecteur """{i}"Passons à quelqu'un d'autre"{i}"""
+
+                menu:
+                    "Jean":
+                        jump Dialogue_Jean
+                    
+                    "Richard":
+                        jump Dialogue_Richard
+                    
+                    "Elisabeth":
+                        jump Dialogue_Elisabeth
 
 
-            
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # =================================================================================================
-
-    # jump questionTime2
-
-    # =================================================================================================
-
+    ###############################################################
+    #########################             #########################
+    #########################    JOUR 2   #########################
+    #########################             #########################
+    ###############################################################
     label Day_Two:
         
         transform alpha_dissolve:
@@ -338,12 +571,11 @@ label start:
                     jump Day_Three
 
 
-
-    # =================================================================================================
-
-    # jump questionTime3
-
-    # =================================================================================================
+    ###############################################################
+    #########################             #########################
+    #########################    JOUR 3   #########################
+    #########################             #########################
+    ###############################################################
     label Day_Three:
 
         transform alpha_dissolve:
