@@ -52,6 +52,103 @@ init:
     $ time = 0
 
 
+#######################################################################################################
+#######################################################################################################
+##### 
+##### Indices
+##### 
+##### =================================================================================================
+label indice_1:
+    "Elisabeth à passer la journée a nettoyer"
+
+label indice_2:
+    "Elisabeth a cuisiné du boeuf"
+
+label indice_3:
+    "Elisabeth lisait Mort sur le Nil"
+
+label indice_4:
+    "Anne est nulle en piano"
+
+label indice_5:
+    "Richard était a la banque toute la journée"
+
+label indice_6:
+    "Elisabeth lisait un manifeste"
+
+label indice_7:
+    "Les Fox et Mr. Penn étaient present"
+
+label indice_8:
+    "Elisabeth frappe les doigts d'Anne"
+
+label indice_9:
+    "Jean et Richard se sont disputé"
+
+label indice_10:
+    "Elisabeth s'est absentée"
+
+label indice_11:
+    "Richard est parti dans la nuit"
+
+label indice_12:
+    "La famille Levallois est très religieuse"
+
+label indice_13:
+    ""
+
+label indice_14:
+    ""
+
+label indice_15:
+    ""
+
+label indice_16:
+    ""
+
+label indice_17:
+    ""
+
+label indice_18:
+    ""
+
+label indice_19:
+    ""
+
+label indice_20:
+    ""
+
+label indice_21:
+    ""
+
+label indice_22:
+    ""
+
+label indice_23:
+    ""
+
+label indice_24:
+    ""
+
+label indice_25:
+    ""
+
+label indice_26:
+    ""
+
+label indice_27:
+    ""
+
+label indice_28:
+    ""
+
+label indice_29:
+    ""
+
+label indice_30:
+    ""
+
+
 # Le jeu commence ici
 label start:
 
@@ -147,8 +244,6 @@ label start:
                     {color=#707070}{i}"Une executions le jour de Noël ? Jolie cadeau Mr. le procureur."{i}{color=#000000}\nCompris chef.
                     """
     
-
-
     ###############################################################
     #########################             #########################
     #########################    JOUR 1   #########################
