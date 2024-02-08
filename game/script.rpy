@@ -156,7 +156,7 @@ label start:
         commissaire_lestrade "Quoi qu'il arrive je veux que vous retrouviez le s*l*p*rd qui a fait ça avant Noël."
 
         inspecteur """
-                    "Une executions le jour de Noël ? Jolie cadeau Mr. le procureur."\nCompris chef.
+                    {color=#707070}{i}"Une executions le jour de Noël ? Jolie cadeau Mr. le procureur."{i}{color=#000000}\nCompris chef.
                     """
     
 
