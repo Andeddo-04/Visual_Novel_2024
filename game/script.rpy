@@ -18,6 +18,15 @@ image grey_background:
     "grey_background.png"
     zoom 10.0
 
+image black_background:
+    "black_background.png"
+    zoom 1.0
+
+image transmition_dossier:
+    "transmition_dossier.png"
+    zoom 0.55
+
+
 # --------------------------------
 # --- CREATION DES PERSONNAGES ---
 # --------------------------------
@@ -64,54 +73,60 @@ label start:
 
         hide ecran_start
 
-        centered """
+        scene black_background
+
+        centered """{color=#ffffff}
                 21 décembre 1952_
                 \n\n{w}
-                "Whitechapel, un quartier rongé par un mal au gout amer de réalité.
+                "Whitechapel, un quartier rongé par un mal au goût amer de réalité.
                 \n
                 {w}
-                Entre psychopathes, camés et autre prostituées on dirait
+                Entre psychopathes, camés et autres prostituées on dirait
                 \n
-                que les enfers eux meme rejetent leurs pourriture informe
+                que les enfers eux même rejettent leurs pourritures informes
                 \n
-                jusque dans l'ame des citoyens.
-                \n
-                {w}
-                Le procureur veut faire un ... exemple
-                \n
-                Une comdamnation a MORT.
+                jusque dans l'âme des citoyens.
                 \n
                 {w}
-                Faire comprendre a la raclure comment finissent\n les esprits égarés.
-                ...
+                Le procureur veut faire un ... exemple ...
+                \n
+                Une comdamnation à {color=#c40000}mort{color=#ffffff}.
+                \n
+                {w}
+                Faire comprendre à la raclure comment finissent\n les esprits égarés.
                 """
 
         nvl clear
 
-        centered """
-                Comme si depuis son bureau dorée, le c*l bien
+        centered """{color=#ffffff}
+                Comme si depuis son bureau doré, le c*l bien
                 \n
-                visser sur son thrones, il s'improvisais Dieu.
-                \n
-                {w}
-                Comme si son palais, rongée par le sel de son caviar,
-                \n
-                pouvait distillé la seule vérité qui compte...
-                \n
+                vissé sur son thrône, il s'improvisait Dieu.
                 \n
                 {w}
-                Enfin... peu importe au final. Moi je ne suis que le chien de garde
+                Comme si son palais, rongé par le sel de son caviar,
                 \n
-                de cet enfer aristocratique. Ses yeux, ses bras...{w}
-                \n
-                Bref celui qui fait le sale boulot. Et de mes choix, dans 4 jours ...
+                pouvait distiller la seule vérité qui compte...
                 \n
                 \n
                 {w}
-                Un homme mourrat."
+                Enfin... peu importe au final. Moi je ne suis qu'un des 
+                \n
+                chiens de garde de cet enfer aristocratique.
+                {w}
+                \n
+                Bref celui qui fait le sale boulot.
+                \n
+                Et de mes choix, dans 4 jours ...
+                \n
+                \n
+                {w}
+                Un homme {color=#c40000}{b}mourrat{/b}{color=#ffffff}."
                 """
 
         nvl clear
+
+        scene grey_background
 
         commissaire_lestrade "Pouvez vous me rapeller votre nom ?"
 
@@ -122,7 +137,11 @@ label start:
 
         commissaire_lestrade "Très bien [inspecteur].\nComme je vous ai dit le procureur nous pousse au c*l pour qu'on envoie quelqu'un a l'échafaud.\nEt on a notre candidat."
         
+        scene transmition_dossier
+
         nrt "{i}*vous tends un dossier*"
+
+        scene grey_background
 
         inspecteur "La victime n'a que 7 ans ?!"
 
@@ -191,16 +210,16 @@ label start:
 
             menu:
                 "Jean":
-                    jump intro
+                    jump dev_codes
                 
                 "Richard":
-                    jump Day_One
+                    jump dev_codes
                 
                 "Elisabeth":
-                    jump Day_Two
+                    jump dev_codes
 
                 "Anne":
-                    jump Day_Three
+                    jump dev_codes
 
     # =================================================================================================
 
@@ -339,16 +358,16 @@ label start:
             
             menu:
                 "Question jour 1":
-                    jump questionTime1
+                    jump Selection_pour_interrogation_1
                 
                 "Question jour 2":
-                    jump questionTime2
+                    jump Selection_pour_interrogation_2
 
                 "Question jour 3":
-                    jump questionTime3
+                    jump Selection_pour_interrogation_3
                 
                 "Restart":
-                    jump start
+                    jump intro
 
     label end:
             #isnss
