@@ -27,18 +27,18 @@ define config.check_conflicting_properties = True
 
 ## Une couleur utilisée dans l’interface pour mettre l’accent sur un texte
 ## (surbrillance).
-define gui.accent_color = '#0099cc'
+define gui.accent_color = '#000000'
 
 ## La couleur utilisée pour le texte d’un bouton quand il n’a jamais été
 ## sélectionné ou survolé.
-define gui.idle_color = '#888888'
+define gui.idle_color = '#000000'
 
 ## La petite couleur est utilisé pour les textes courts qui nécessitent d’être
 ## assombris ou éclairés pour obtenir le même effet.
-define gui.idle_small_color = '#aaaaaa'
+define gui.idle_small_color = '#ffffff'
 
 ## Cette couleur est utilisée pour les boutons et les barres qui sont survolées.
-define gui.hover_color = '#66c1e0'
+define gui.hover_color = '#ffffff'
 
 ## Cette couleur est utilisé pour le texte d’un bouton sélectionné, mais qui n’a
 ## pas le focus. Un bouton est sélectionné s’il est sur l’écran actuel ou si
@@ -140,7 +140,7 @@ define gui.dialogue_xpos = 150
 define gui.dialogue_ypos = -0.1
 
 ## La largeur maximale en pixels de la zone de dialogue.
-define gui.dialogue_width = 1116
+define gui.dialogue_width = 1500
 
 ## L’alignement horizontal de la zone de dialogue. La valeur peut être 0.0 pour
 ## un alignement à gauche, 0.5 pour le centrer et 1.0 pour un alignement à
@@ -242,6 +242,9 @@ define gui.slot_button_text_xalign = 0.5
 define gui.slot_button_text_idle_color = gui.idle_small_color
 define gui.slot_button_text_selected_idle_color = gui.selected_color
 define gui.slot_button_text_selected_hover_color = gui.hover_color
+
+
+
 
 ## La largeur et la hauteur des vignettes de sauvegarde utilisée pour les
 ## emplacements de sauvegarde.

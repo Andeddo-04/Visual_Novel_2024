@@ -297,7 +297,10 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Nouvelle partie") action Start()
+            imagebutton:
+                idle "gui/button_start.png"  # Image du bouton lorsque le curseur n'est pas dessus
+                hover "gui/button_start_interact.png"  # Image du bouton lorsque le curseur est dessus
+                action Start()  # Action à effectuer lorsque le bouton est cliqué (dans cet exemple, le jeu commence)
 
         else:
 
@@ -305,31 +308,25 @@ screen navigation():
 
             textbutton _("Sauvegarde") action ShowMenu("save")
 
-        textbutton _("Charger") action ShowMenu("load")
+        imagebutton:
+                idle "gui/button_load.png"  # Image du bouton lorsque le curseur n'est pas dessus
+                hover "gui/button_load_interact.png"  # Image du bouton lorsque le curseur est dessus
+                action ShowMenu("load")
 
         textbutton _("Préférences") action ShowMenu("preferences")
 
-        if _in_replay:
-
-            textbutton _("Fin de la rediffusion") action EndReplay(confirm=True)
-
-        elif not main_menu:
+        if not main_menu:
 
             textbutton _("Menu principal") action MainMenu()
-
-        textbutton _("À propos") action ShowMenu("about")
-
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-
-            ## L'aide n’est ni nécessaire ni pertinente sur les appareils
-            ## mobiles.
-            textbutton _("Aide") action ShowMenu("help")
-
+        
         if renpy.variant("pc"):
 
             ## Le bouton pour quitter est banni sur iOS et inutile sur Android
             ## et sur le Web.
-            textbutton _("Quitter") action Quit(confirm=not main_menu)
+            imagebutton:
+                idle "gui/button_quit.png"  # Image du bouton lorsque le curseur n'est pas dessus
+                hover "gui/button_quit_interact.png"  # Image du bouton lorsque le curseur est dessus
+                action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
