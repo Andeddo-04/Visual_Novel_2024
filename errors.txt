@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 78: expected statement.
-    § renpy.text.color("white")
-           ^
+File "game/script.rpy", line 236: choice menuitem expects a non-empty block.
+    "Ecouter son Alibi":
+                        ^
 
 Ren'Py Version: Ren'Py 8.1.3.23091805
-Thu Feb  8 09:22:37 2024
+Thu Feb  8 10:09:00 2024

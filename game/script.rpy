@@ -77,22 +77,19 @@ label start:
 
         centered """{color=#ffffff}
                 21 décembre 1952_
-                \n\n{w}
+                \n \n {w}
                 "Whitechapel, un quartier rongé par un mal au goût amer de réalité.
-                \n
-                {w}
+                \n {w}
                 Entre psychopathes, camés et autres prostituées on dirait
                 \n
                 que les enfers eux même rejettent leurs pourritures informes
                 \n
                 jusque dans l'âme des citoyens.
-                \n
-                {w}
+                \n {w}
                 Le procureur veut faire un ... exemple ...
                 \n
                 Une comdamnation à {color=#c40000}mort{color=#ffffff}.
-                \n
-                {w}
+                \n {w}
                 Faire comprendre à la raclure comment finissent\n les esprits égarés.
                 """
 
@@ -102,25 +99,19 @@ label start:
                 Comme si depuis son bureau doré, le c*l bien
                 \n
                 vissé sur son thrône, il s'improvisait Dieu.
-                \n
-                {w}
+                \n {w}
                 Comme si son palais, rongé par le sel de son caviar,
                 \n
                 pouvait distiller la seule vérité qui compte...
-                \n
-                \n
-                {w}
+                \n \n {w}
                 Enfin... peu importe au final. Moi je ne suis qu'un des 
                 \n
                 chiens de garde de cet enfer aristocratique.
-                {w}
-                \n
+                \n {w}
                 Bref celui qui fait le sale boulot.
                 \n
                 Et de mes choix, dans 4 jours ...
-                \n
-                \n
-                {w}
+                \n \n {w}
                 Un homme {color=#c40000}{b}mourrat{/b}{color=#ffffff}."
                 """
 
@@ -210,7 +201,7 @@ label start:
 
             menu:
                 "Jean":
-                    jump dev_codes
+                    jump Alibi_Jean
                 
                 "Richard":
                     jump dev_codes
@@ -220,6 +211,69 @@ label start:
 
                 "Anne":
                     jump dev_codes
+
+
+        centered """{i}
+                "Jean Levallois... Il semblait calme. Bien trop calme.
+                \n {w}
+                Son visage, impassible, ne laissait rien entrevoir d'autre 
+                \n
+                que sa future sénilité et pourtant il reussissait a garder son calme.
+                \n \n
+                Il etait a l'image d'un prédateur se camouflant parmis
+                \n
+                nous autre afin qu'on se méfie pas des ses crocs.
+                \n
+                Mais il était aussi a l'image d'un vieux sage eyant vu les
+                \n
+                secrets de l'univers.
+                \n \n
+                Qui était il? Je comptais bien le découvrir..."
+                """
+
+        menu:
+            
+            "Ecouter son Alibi":
+
+        label Alibi_Jean:
+
+            
+
+
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     # =================================================================================================
 

@@ -1,15 +1,15 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 102, in script
-    centered """{color=#ffffff}
-Exception: Empty text tag in '{color=#ffffff} Comme si depuis son bureau dorée, le c*l bien \n visser sur son thrones, il s\'improvisais Dieu. \n {w} Comme si son palais, rongée par le sel de son caviar, \n pouvait distillé la seule vérité qui compte... \n \n {w} Enfin... peu importe au final. Moi je ne suis que le chien de garde \n de cet enfer aristocratique. Ses yeux, ses bras...{w} \n Bref celui qui fait le sale boulot. Et de mes choix, dans 4 jours ... \n \n {w} Un homme {color=#c40000}{}mourrat{color=#ffffff}."'.
+  File "game/script.rpy", line 227, in script
+    centered """
+Exception: Empty text tag in '"Jean Levallois... Il semblait calme. Bien trop calme. \n {} Son visage, impassible, ne laissait rien entrvoir d\'autre que sa future sénilité et pourtant il reussissait a garder son calme. Il etait a l\'image d\'un prédateur se camouflant parmis nous autre afin qu\'on se méfie pas des ses crocs. Mais il était aussi a l\'image d\'un vieux sage eyant vu les secrets de l\'univers. Qui était il? Je comptais bien le découvrir..."'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 102, in script
-    centered """{color=#ffffff}
+  File "game/script.rpy", line 227, in script
+    centered """
   File "D:\2 - Cours\1 - année_n°1\Logiciel\renpy-8.1.3-sdk\renpy\ast.py", line 930, in execute
     renpy.exports.say(who, what, *args, **kwargs)
   File "D:\2 - Cours\1 - année_n°1\Logiciel\renpy-8.1.3-sdk\renpy\exports.py", line 1474, in say
@@ -25,9 +25,9 @@ Full traceback:
   File "D:\2 - Cours\1 - année_n°1\Logiciel\renpy-8.1.3-sdk\renpy\text\text.py", line 2345, in tokenize
     tokens.extend(textsupport.tokenize(i))
   File "textsupport.pyx", line 147, in renpy.text.textsupport.tokenize
-Exception: Empty text tag in '{color=#ffffff} Comme si depuis son bureau dorée, le c*l bien \n visser sur son thrones, il s\'improvisais Dieu. \n {w} Comme si son palais, rongée par le sel de son caviar, \n pouvait distillé la seule vérité qui compte... \n \n {w} Enfin... peu importe au final. Moi je ne suis que le chien de garde \n de cet enfer aristocratique. Ses yeux, ses bras...{w} \n Bref celui qui fait le sale boulot. Et de mes choix, dans 4 jours ... \n \n {w} Un homme {color=#c40000}{}mourrat{color=#ffffff}."'.
+Exception: Empty text tag in '"Jean Levallois... Il semblait calme. Bien trop calme. \n {} Son visage, impassible, ne laissait rien entrvoir d\'autre que sa future sénilité et pourtant il reussissait a garder son calme. Il etait a l\'image d\'un prédateur se camouflant parmis nous autre afin qu\'on se méfie pas des ses crocs. Mais il était aussi a l\'image d\'un vieux sage eyant vu les secrets de l\'univers. Qui était il? Je comptais bien le découvrir..."'.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.3.23091805
 Un Diable à Whitechapel 1.0
-Thu Feb  8 09:30:32 2024
+Thu Feb  8 10:01:07 2024
