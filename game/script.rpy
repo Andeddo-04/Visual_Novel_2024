@@ -1,11 +1,35 @@
 ﻿# ---------------------------------------------------
 # --- ASSOCIATION DES IMAGES AVEC LES PERSONNAGES ---
 # ---------------------------------------------------
-image q:
-    ""
+image Jean:
+    "Jean.png"
+    zoom 0.33
+    xalign 0.56
+    yalign 0.74
 
-image c:
-    ""
+image Richard:
+    "Richard.png"
+    zoom 1.0
+    xalign 0.9
+    yalign 0.75
+
+image Elisabeth:
+    "Elisabeth.png"
+    zoom 0.35
+    xalign 0.7
+    yalign 0.67
+
+image Anne:
+    "Anne.png"
+    zoom 0.4
+    xalign 0.42
+    yalign 0.75
+
+image Commissaire:
+    "Commissaire.png"
+    zoom 0.5
+    xalign 0.9
+    yalign 0.5
 
 # ----------------------------------------------
 # --- ASSOCIATION DES IMAGES AVEC LES SCENES ---
@@ -26,13 +50,38 @@ image transmition_dossier:
     "transmition_dossier.png"
     zoom 0.55
 
+image bureau_commissaire:
+    "bureau_commissaire.png"
+    zoom 1.0
+
+image salle_attente:
+    "Salle_dattente.png"
+    xalign 0.7
+    yalign 0.8
+    zoom 1.0
+
+image interrogatoire_anne:
+    "interrogatoire_anne.png"
+    zoom 1.0
+
+image interrogatoire_richard:
+    "interrogatoire_richard.png"
+    zoom 1.0
+
+image interrogatoire_jean:
+    "interrogatoire_jean.png"
+    zoom 1.0
+
+image interrogatoire_elisabeth:
+    "interrogatoire_anne.png"
+    zoom 1.0
 
 # --------------------------------
 # --- CREATION DES PERSONNAGES ---
 # --------------------------------
 
 
-define nrt = Character('')
+define nrt = Character('', color="#e2651d")
 define commissaire_lestrade = Character('Commissaire Lestrade', color="#e2651d")
 define inspecteur = Character("Inspecteur [name]",color="#c2073f")
 define jean = Character("Jean Levallois",color="#9aa819")
@@ -94,7 +143,7 @@ label start:
                 \n
                 Et de mes choix, dans 4 jours ...
                 \n \n {w}
-                Un homme {color=#c40000}{b}mourrat{/b}{color=#ffffff}."
+                Un Homme {color=#c40000}{b}mourrat{/b}{color=#ffffff}."
                 """
 
         nvl clear
@@ -105,6 +154,7 @@ label start:
 
 
     label identite:
+        show Commissaire
         python:
             name = renpy.input("Quel est votre nom ?")
             name = name.strip() or "Smith"
@@ -113,12 +163,19 @@ label start:
 
     label Day_zero:
 
+        scene bureau_commissaire
+        show Commissaire
+
         commissaire_lestrade "Pouvez vous me rapeller votre nom ?"
+
+        show Commissaire
 
         jump identite
 
         label Day_zero_continu:
             pass
+        
+        show Commissaire
 
         commissaire_lestrade "Très bien [inspecteur].\nComme je vous ai dit le procureur nous pousse au c*l pour qu'on envoie quelqu'un a l'échafaud.\nEt on a notre candidat."
         
@@ -126,7 +183,9 @@ label start:
 
         nrt "{i}le commissaire vous tends un dossier"
 
-        scene grey_background
+        scene bureau_commissaire
+
+        show Commissaire
 
         inspecteur "La victime n'a que 7 ans ?!"
 
@@ -139,9 +198,9 @@ label start:
         inspecteur """
                     {color=#707070}{i}"Une executions le jour de Noël ? Jolie cadeau Mr. le procureur."{i}{color=#000000}
                     \n
-                    Compris chef.
+                    {color=#ffffff}Compris chef.
                     """
-    
+
     ###############################################################
     #########################             #########################
     #########################    JOUR 1   #########################
@@ -155,6 +214,8 @@ label start:
             on hide:
                 linear 0.5 alpha 0
 
+        scene black_background
+
         screen countdown:
             timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01), false=[Hide('countdown'), Jump(timer_jump)]) 
                 ### ^this code decreases variable time by 0.01 until time hits 0, at which point, the game jumps to label timer_jump (timer_jump is another variable that will be defined later)
@@ -162,7 +223,7 @@ label start:
             bar value time range timer_range xalign 0.5 yalign 0.5 xmaximum 500 at alpha_dissolve 
                 # ^This is the timer bar.
 
-        nrt "Jour 1_"
+        centered "{color=#ffffff}Jour 1_"
         
         label Coffe_time_1:
             
@@ -192,17 +253,26 @@ label start:
 
         label Selection_pour_interrogation_1:
 
+            scene salle_attente
+            show Jean
+            show Richard
+            show Elisabeth
+            show Anne
+
+            
             menu:
-                "Jean":
+                "Qui voulez vous interroger ?"
+
+                "{color=#ffffff}Jean":
                     jump Dialogue_Jean
                 
-                "Richard":
+                "{color=#ffffff}Richard":
                     jump Dialogue_Richard
                 
-                "Elisabeth":
+                "{color=#ffffff}Elisabeth":
                     jump Dialogue_Elisabeth
 
-                "Anne":
+                "{color=#ffffff}Anne":
                     jump Dialogue_Anne
     
         #######################################################################################################
@@ -213,7 +283,9 @@ label start:
         ##### =================================================================================================
         label Dialogue_Jean:
 
-            centered """{i}{color=#000000}
+            scene black_background
+
+            centered """{i}{color=#ffffff}
                 "Jean Levallois... Il semblait calme. Bien trop calme.
                 \n {w}
                 Son visage, impassible, ne laissait rien entrevoir d'autre 
@@ -233,31 +305,36 @@ label start:
 
             menu:
                 
-                "Ecouter son Alibi":
+                "{color=#ffffff}Ecouter son Alibi":
                     jump Alibi_Jean
 
+            
+
             label Alibi_Jean:
+                
+                scene interrogatoire_jean
 
-                inspecteur "Mr Levallois que faisiez vou.."
-
-                jean "Mr l'agent ... Croyez vous en Dieu ?"
+                inspecteur "Mr Levallois que faisiez vo.."                
 
                 menu:
+
+                    jean "Mr l'agent ... Croyez vous en Dieu ?"
+                    
                     "...":
                         pass
+                
                 
                 jean """
-                    Vous savez c'est moi qui m'ocuppe de l'éducation {a=indice_12}RELIGIEUSE{/a}
-                    de cette famille... Rose... Quelle tragédie!
-                    \n
-                    Son âme pouvait être sauvée si nous avions eu plus de temps ...
-                    \n
-                    Vous voulez savoir ce que je faisait le 13 décembre n'est pas ?
-                    """
+                        Vous savez c'est moi qui m'ocuppe de l'éducation {a=indice_12}RELIGIEUSE{/a}
+                        de cette famille... Rose... Quelle tragédie!
+                        \n
+                        Son âme pouvait être sauvée si nous avions eu plus de temps ...
+                        \n
+                        """
+
+                jean "Vous voulez savoir ce que je faisait le 13 décembre n'est pas ?"
                 
-                menu:
-                    "...":
-                        pass
+                inspecteur "C'est cela."
                 
                 jean """
                     Je priais... Je priais pour Rose et je lui montrais comment il fallait
@@ -265,14 +342,13 @@ label start:
                     montrer notre amour au Seigneur...
                     """ 
 
-                menu:
-                    "Etiez-vous avec elle ?":
-                        pass
+                inspecteur "Etiez-vous avec elle ?"
                 
                 jean "Lorsque les invité de mon fils sont arrivés au domicile je suis allé faire un tour dans le parc et Rose est partie dormir"
             
-
                 inspecteur """{i}"Passons à quelqu'un d'autre"{i}"""
+
+                scene salle_attente
 
                 menu:
                     "Richard":
@@ -514,8 +590,6 @@ label start:
                         jump to_be_continued
 
 
-
-
     label to_be_continued:
 
         scene black_background
@@ -539,123 +613,122 @@ label start:
 ##### Indices
 ##### 
 ##### =================================================================================================
-label indice_1:
-    "Elisabeth à passer la journée a nettoyer"
+label Indices:
+    label indice_1:
+        "Elisabeth à passer la journée a nettoyer"
 
-label indice_2:
-    "Elisabeth a cuisiné du boeuf"
+    label indice_2:
+        "Elisabeth a cuisiné du boeuf"
 
-label indice_3:
-    "Elisabeth lisait Mort sur le Nil"
+    label indice_3:
+        "Elisabeth lisait Mort sur le Nil"
 
-label indice_4:
-    "Anne est nulle en piano"
+    label indice_4:
+        "Anne est nulle en piano"
 
-label indice_5:
-    "Richard était a la banque toute la journée"
+    label indice_5:
+        "Richard était a la banque toute la journée"
 
-label indice_6:
-    "Elisabeth lisait un manifeste"
+    label indice_6:
+        "Elisabeth lisait un manifeste"
 
-label indice_7:
-    "Les Fox et Mr. Penn étaient present"
+    label indice_7:
+        "Les Fox et Mr. Penn étaient present"
 
-label indice_8:
-    "Elisabeth frappe les doigts d'Anne"
+    label indice_8:
+        "Elisabeth frappe les doigts d'Anne"
 
-label indice_9:
-    "Jean et Richard se sont disputé"
+    label indice_9:
+        "Jean et Richard se sont disputé"
 
-label indice_10:
-    "Elisabeth s'est absentée"
+    label indice_10:
+        "Elisabeth s'est absentée"
 
-label indice_11:
-    "Richard est parti dans la nuit"
+    label indice_11:
+        "Richard est parti dans la nuit"
 
-label indice_12:
-    "La famille Levallois est très religieuse"
+    label indice_12:
+        "La famille Levallois est très religieuse"
 
-label indice_13:
-    ""
+    label indice_13:
+        ""
 
-label indice_14:
-    ""
+    label indice_14:
+        ""
 
-label indice_15:
-    ""
+    label indice_15:
+        ""
 
-label indice_16:
-    ""
+    label indice_16:
+        ""
 
-label indice_17:
-    ""
+    label indice_17:
+        ""
 
-label indice_18:
-    ""
+    label indice_18:
+        ""
 
-label indice_19:
-    ""
+    label indice_19:
+        ""
 
-label indice_20:
-    ""
+    label indice_20:
+        ""
 
-label indice_21:
-    ""
+    label indice_21:
+        ""
 
-label indice_22:
-    ""
+    label indice_22:
+        ""
 
-label indice_23:
-    ""
+    label indice_23:
+        ""
 
-label indice_24:
-    ""
+    label indice_24:
+        ""
 
-label indice_25:
-    ""
+    label indice_25:
+        ""
 
-label indice_26:
-    ""
+    label indice_26:
+        ""
 
-label indice_27:
-    ""
+    label indice_27:
+        ""
 
-label indice_28:
-    ""
+    label indice_28:
+        ""
 
-label indice_29:
-    ""
+    label indice_29:
+        ""
 
-label indice_30:
-    ""
-
-
-
+    label indice_30:
+        ""
 
 
 
-    label suite:
 
-        nrt "Victory"
+label suite:
+
+    nrt "Victory"
+    
+    jump dev_codes
+
+    label dev_codes:          
         
-        jump dev_codes
-
-        label dev_codes:          
+        menu:
+            "Question jour 1":
+                jump Selection_pour_interrogation_1
             
-            menu:
-                "Question jour 1":
-                    jump Selection_pour_interrogation_1
-                
-                "Question jour 2":
-                    jump Selection_pour_interrogation_2
+            "Question jour 2":
+                jump Selection_pour_interrogation_2
 
-                "Question jour 3":
-                    jump Selection_pour_interrogation_3
-                
-                "Restart":
-                    jump intro
+            "Question jour 3":
+                jump Selection_pour_interrogation_3
+            
+            "Restart":
+                jump intro
 
-    label end:
-        pass
+label end:
+    pass
 
 return

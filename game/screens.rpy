@@ -250,7 +250,6 @@ screen quick_menu():
             yalign 1.0
 
             textbutton _("Retour") action Rollback()
-            textbutton _("Historique") action ShowMenu('history')
             textbutton _("Avance rapide") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Sauvegarde") action ShowMenu('save')
@@ -295,29 +294,35 @@ screen navigation():
 
         spacing gui.navigation_spacing
 
-        if main_menu:
-
-            imagebutton:
-                idle "gui/button_start.png"  # Image du bouton lorsque le curseur n'est pas dessus
-                hover "gui/button_start_interact.png"  # Image du bouton lorsque le curseur est dessus
-                action Start()  # Action à effectuer lorsque le bouton est cliqué (dans cet exemple, le jeu commence)
-
-        else:
-
-            textbutton _("Historique") action ShowMenu("history")
-
-            textbutton _("Sauvegarde") action ShowMenu("save")
+        imagebutton:
+            idle "gui/button_start.png"  # Image du bouton lorsque le curseur n'est pas dessus
+            hover "gui/button_start_interact.png"  # Image du bouton lorsque le curseur est dessus
+            xpos 0.2
+            ypos 0.2
+            action Start()  # Action à effectuer lorsque le bouton est cliqué (dans cet exemple, le jeu commence)
 
         imagebutton:
-                idle "gui/button_load.png"  # Image du bouton lorsque le curseur n'est pas dessus
-                hover "gui/button_load_interact.png"  # Image du bouton lorsque le curseur est dessus
-                action ShowMenu("load")
+            idle "gui/button_load.png"  # Image du bouton lorsque le curseur n'est pas dessus
+            hover "gui/button_load_interact.png"  # Image du bouton lorsque le curseur est dessus
+            xpos 0.2
+            ypos 1.5
+            action ShowMenu("load")
 
-        textbutton _("Préférences") action ShowMenu("preferences")
+        imagebutton:
+            idle "gui/button_option.png"  # Image du bouton lorsque le curseur n'est pas dessus
+            hover "gui/button_option_interact.png"  # Image du bouton lorsque le curseur est dessus
+            xpos 5.8
+            ypos -7.55
+            action ShowMenu("preferences")
 
         if not main_menu:
 
-            textbutton _("Menu principal") action MainMenu()
+            imagebutton:
+                idle "gui/button_home.png"  # Image du bouton lorsque le curseur n'est pas dessus
+                hover "gui/button_home_interact.png"  # Image du bouton lorsque le curseur est dessus
+                xpos 0.2
+                ypos 1.25
+                action MainMenu()
         
         if renpy.variant("pc"):
 
@@ -326,6 +331,8 @@ screen navigation():
             imagebutton:
                 idle "gui/button_quit.png"  # Image du bouton lorsque le curseur n'est pas dessus
                 hover "gui/button_quit_interact.png"  # Image du bouton lorsque le curseur est dessus
+                xpos 0.2
+                ypos 2.2
                 action Quit(confirm=not main_menu)
 
 

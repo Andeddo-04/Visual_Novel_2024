@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 538: expected statement.
+File "game/script.rpy", line 341: is not terminated with a newline. (Check strings and parenthesis.)
 (Perhaps you left out a " at the end of the first line.)
-    centered """
-                
-                """
+                        """ 
 
 Ren'Py Version: Ren'Py 8.1.3.23091805
-Thu Feb  8 15:57:51 2024
+Fri Feb  9 10:10:12 2024
