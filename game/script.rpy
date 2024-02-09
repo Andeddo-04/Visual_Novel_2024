@@ -28,7 +28,7 @@ image Anne:
 image Commissaire:
     "Commissaire.png"
     zoom 0.5
-    xalign 0.9
+    xalign 0.67
     yalign 0.5
 
 # ----------------------------------------------
@@ -73,7 +73,7 @@ image interrogatoire_jean:
     zoom 1.0
 
 image interrogatoire_elisabeth:
-    "interrogatoire_anne.png"
+    "interrogatoire_elisabeth.png"
     zoom 1.0
 
 # --------------------------------
@@ -370,8 +370,10 @@ label start:
         ##### 
         ##### =================================================================================================
         label Dialogue_Richard:
+            
+            scene black_background
 
-            centered """{i}{color=#000000}
+            centered """{i}{color=#ffffff}
                 "Richard Levallois... Un banquier qui aurait assez d'argent pour racheter
                 \n
                 Buckingham palace s'il n'en dépensait pas la moitié pour alimenter sa future cirrhose
@@ -394,6 +396,8 @@ label start:
                     jump Alibi_Richard
 
             label Alibi_Richard:
+
+                scene interrogatoire_richard
 
                 inspecteur "Bien, vous allez me décrire les evenements de la journée du 13 décembre dernier."
 
@@ -418,6 +422,8 @@ label start:
 
                 inspecteur """{i}"Passons à quelqu'un d'autre"{i}"""
 
+                scene salle_attente
+
                 menu:
                     "Jean":
                         jump Dialogue_Jean
@@ -439,7 +445,9 @@ label start:
         ##### =================================================================================================
         label Dialogue_Elisabeth:
 
-            centered """{i}{color=#000000}
+            scene black_background
+
+            centered """{i}{color=#ffffff}
                 Elisabeth Levallois... Son visage ne laissait transparaitre qu'un
                 \n
                 demon froid et calculateur caché derriere du fond de teint. 
@@ -459,6 +467,8 @@ label start:
                     jump Alibi_Elisabeth
 
             label Alibi_Elisabeth:
+
+                scene interrogatoire_elisabeth
 
                 inspecteur "Bon si vous voulez bien on va revenir sur les évenements du 13 décembre."
 
@@ -503,7 +513,10 @@ label start:
 
                 inspecteur """{i}"Passons à quelqu'un d'autre"{i}"""
 
+                scene salle_attente
+
                 menu:
+
                     "Jean":
                         jump Dialogue_Jean
                     
@@ -524,7 +537,9 @@ label start:
         ##### =================================================================================================
         label Dialogue_Anne:
 
-            centered """{color=#000000}
+            scene black_background
+
+            centered """{color=#ffffff}
                 Anne Levallois était une jeune fille au bouffi par
                 \n
                 des souvenirs... douloureux.
@@ -544,6 +559,8 @@ label start:
                     jump Alibi_Anne
 
             label Alibi_Anne:
+
+                scene interrogatoire_anne
 
                 inspecteur "Mlle Anne ? Que faisiez vous le 13 décembre dernier ?"
 
@@ -575,6 +592,8 @@ label start:
                 anne "Je... Je n'ai pas très bien dormi et je suis allé voir dans la chambre de rose à [[L'AUBE|indice n°11]]."
                 
                 inspecteur """{i}"Passons à quelqu'un d'autre"{i}"""
+
+                scene salle_attente
 
                 menu:
                     "Jean":
@@ -729,6 +748,4 @@ label suite:
                 jump intro
 
 label end:
-    pass
-
-return
+    return
